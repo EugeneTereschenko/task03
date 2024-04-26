@@ -17,53 +17,13 @@ import java.util.Map;
 	aliasName = "${lambdas_alias_name}",
 	logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
 )
-public class HelloWorldTest implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
+public class HelloWorldTest implements RequestHandler<Object, Map<String, Object>> {
 
-	private static final int SC_OK = 200;
-	private static final int SC_BAD_REQUEST = 400;
-	private final Gson gson = new Gson();
-
-	@Override
-	public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent apiGatewayProxyRequestEvent, Context context) {
-		context.getLogger().log(apiGatewayProxyRequestEvent.toString());
-		Map<String, String> queryStringParameters = apiGatewayProxyRequestEvent.getQueryStringParameters();
-		try {
-			String responseBody = gson.toJson(new HelloWorldTest.ResponseObject(SC_OK, "Hello from Lambda"));
-			return new APIGatewayProxyResponseEvent()
-					.withStatusCode(SC_OK)
-					.withBody(responseBody);
-		} catch (Exception exception) {
-			String responseBody = gson.toJson(new HelloWorldTest.ResponseObject(SC_BAD_REQUEST, "Error"));
-			return new APIGatewayProxyResponseEvent()
-					.withStatusCode(SC_BAD_REQUEST)
-					.withBody(responseBody);
-		}
-
-	}
-
-	private static class ResponseObject {
-		private int statusCode;
-		private String message;
-
-		public ResponseObject(int statusCode, String message) {
-			this.statusCode = statusCode;
-			this.message = message;
-		}
-
-		public int getStatusCode() {
-			return statusCode;
-		}
-
-		public void setStatusCode(int statusCode) {
-			this.statusCode = statusCode;
-		}
-
-		public String getMessage() {
-			return message;
-		}
-
-		public void setMessage(String message) {
-			this.message = message;
-		}
+	public Map<String, Object> handleRequest(Object request, Context context) {
+		System.out.println("Hello from lambda");
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("statusCode", 200);
+		resultMap.put("message", "Hello from Lambda");
+		return resultMap;
 	}
 }
