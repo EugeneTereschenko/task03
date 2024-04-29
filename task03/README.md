@@ -1,4 +1,4 @@
-# Hello
+# Hello_v2
 
 High level project overview - business value it brings, non-detailed technical overview.
 
@@ -7,9 +7,9 @@ All the technical details described below are actual for the particular
 version, or a range of versions of the software.
 ### Actual for versions: 1.0.0
 
-## Hello diagram
+## Hello_v2 diagram
 
-![Hello](pics/Hello_diagram.png)
+![Hello_v2](pics/Hello_v2_diagram.png)
 
 ## Lambdas descriptions
 
