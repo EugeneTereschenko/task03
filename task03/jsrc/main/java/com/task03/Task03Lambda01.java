@@ -1,4 +1,4 @@
-package com.Hellov2;
+package com.task03;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -13,7 +13,7 @@ import java.util.Map;
 	isPublishVersion = false,
 	logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
 )
-public class HelloWorld implements RequestHandler<Object, Map<String, Object>> {
+public class Task03Lambda01 implements RequestHandler<Object, Map<String, Object>> {
 
 	public Map<String, Object> handleRequest(Object request, Context context) {
 		System.out.println("Hello from lambda");

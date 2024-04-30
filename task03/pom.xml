@@ -47,7 +47,7 @@
                 <version>${syndicate.java.plugin.version}</version>
                 <configuration>
                     <packages>
-                        <package>com.Hellov2</package>
+                        <package>com.task03</package>
                     </packages>
                     <fileName>${project.name}-${project.version}.jar</fileName>
                 </configuration>
